@@ -1,24 +1,24 @@
 class Afpsql < Formula
-  desc "A PostgreSQL tool for AI agents — SQL in, typed rows out, on a connection that stays open."
+  desc "A PostgreSQL interface for AI agents: reliable, structured, explicit, and safe by default."
   homepage "https://github.com/agentfirstkit/agent-first-psql"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.5.0/afpsql-v0.5.0-aarch64-apple-darwin.tar.gz"
-      sha256 "5f4cdff15a4b656ac2fcc7f2a477565ee22e0c12cdc06166448fa03ad44236ed"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.0/afpsql-v0.6.0-aarch64-apple-darwin.tar.gz"
+      sha256 "383c53da68b0291518bcef48e12781c48ed408019c08aa7ab3e8c7aa63f11281"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.5.0/afpsql-v0.5.0-x86_64-apple-darwin.tar.gz"
-      sha256 "5802f9b7b70ea3617f0c281a74d82a40ead04edb16bfbab42a71ebcd4f6f0fd1"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.0/afpsql-v0.6.0-x86_64-apple-darwin.tar.gz"
+      sha256 "f4a075c5a8130c61981a2ebbd3bfd8f379f03b0b09b2b0e0673f79bd72f871b8"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.5.0/afpsql-v0.5.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "47f303f6c1eb4708ede34b1044bb4e4570598b2a3f34e19bb1fcd70be02a1a54"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.0/afpsql-v0.6.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "bfea06ca9ea549a6fe653c05c0f84d44d072289e35a6ea147633be5ff22dcc3c"
     end
   end
 
