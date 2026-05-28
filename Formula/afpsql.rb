@@ -1,24 +1,24 @@
 class Afpsql < Formula
   desc "A PostgreSQL interface for AI agents: reliable, structured, explicit, and read-only by default."
   homepage "https://github.com/agentfirstkit/agent-first-psql"
-  version "0.6.1"
+  version "0.6.2"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.1/afpsql-v0.6.1-aarch64-apple-darwin.tar.gz"
-      sha256 "77ab9fe7abe5f2db00b6a946abe48c9e000f5d40f832c6fbeb703a898c28178c"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.2/afpsql-v0.6.2-aarch64-apple-darwin.tar.gz"
+      sha256 "c126fab5dd8d717ecf42ff743916e53a9ff0d8b5d8a93ba42c01011574abf1f2"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.1/afpsql-v0.6.1-x86_64-apple-darwin.tar.gz"
-      sha256 "64bf3c3108c92711b9a5d2d0c372f924b9bdb88241061fdaea141532807d25ef"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.2/afpsql-v0.6.2-x86_64-apple-darwin.tar.gz"
+      sha256 "c54bfeaafdadb435ad649b500c4a4daa50221ac2c0ef397b4b16e54fa454861c"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.1/afpsql-v0.6.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f6e076acfe8c1a53fafc9a4130efafa40fb216c5356928885e099fb14b89c45d"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.6.2/afpsql-v0.6.2-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "519047d220832fb8dc8c475c427023d051e45174a5b8a90912fe027a4eb135d3"
     end
   end
 
