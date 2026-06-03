@@ -1,24 +1,24 @@
 class Afhttp < Formula
-  desc "Persistent HTTP client for AI agents — one request, one JSON line"
+  desc "Give an AI agent any URL and get back a usable page — fetched directly, or rendered in a real browser when the page needs one — with a human able to take over the same browser for a login, captcha, or 2FA."
   homepage "https://github.com/agentfirstkit/agent-first-http"
-  version "0.4.3"
+  version "0.5.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.4.3/afhttp-v0.4.3-aarch64-apple-darwin.tar.gz"
-      sha256 "e5bdf48aafb34ea0b85ffb3d95cce95184191eed239675d3b8b49a788bd5b174"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.5.0/afhttp-v0.5.0-aarch64-apple-darwin.tar.gz"
+      sha256 "47607e1a7d61776738a0d0b56230fde4b327003c98dbf386759d8c307baff97f"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.4.3/afhttp-v0.4.3-x86_64-apple-darwin.tar.gz"
-      sha256 "b1fcbc4e6b7ff79d5553fc00049b162c90c602da23559d0395d93feed41d275c"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.5.0/afhttp-v0.5.0-x86_64-apple-darwin.tar.gz"
+      sha256 "735acaea4323936a7a9bd5130930e694eb75a57251f84af14de0509e2172c7e0"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.4.3/afhttp-v0.4.3-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "5d4af00a3073a1e7565573d4260dfd2726f5c3aff455f98b6a79a888568102f9"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.5.0/afhttp-v0.5.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "54059b1ff4e88cac79448015a574379efbc59c8271c77a1e74047dd671649c77"
     end
   end
 
