@@ -1,24 +1,24 @@
 class Afmail < Formula
-  desc "Give your AI agent a mailbox it can actually work in — your mail pulled down into plain files it reads, triages, drafts, and files entirely on your machine, with nothing sent or changed on the real mailbox until you confirm."
+  desc "Let your AI agent work your inbox — email pulled into plain files it reads, sorts, and drafts on your machine, with nothing sent until you confirm."
   homepage "https://github.com/agentfirstkit/agent-first-mail"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.1.0/afmail-v0.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "6d8a5e299829a859fbb753bf27c165aa49f64bd549af07713b9ed1f2f7508637"
+      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.2.0/afmail-v0.2.0-aarch64-apple-darwin.tar.gz"
+      sha256 "da727eafc33be79816abc35e303cf777936fd4215c66c9b4c22a099e5408d8ed"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.1.0/afmail-v0.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "e8c1d2b1b9b511aa895ce6ab43a268ac450976eb8961ec63795232c5b8ba26da"
+      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.2.0/afmail-v0.2.0-x86_64-apple-darwin.tar.gz"
+      sha256 "13fe58191be8ef3394afcb2c34486e44fc3484f3a94c322c2d0ca0a6fbf9c126"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.1.0/afmail-v0.1.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "59b7071e43f455bd5fd2e7b20cafcc65e53220491687e57bc610e55c28e8645b"
+      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.2.0/afmail-v0.2.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "692cdb0f41f228ee046c38c1a13858ff0e6e060e0892dc9ace0cee6d57f9fc5a"
     end
   end
 
