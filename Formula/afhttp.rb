@@ -1,24 +1,24 @@
 class Afhttp < Formula
-  desc "Give an AI agent its own isolated browser to actually open a URL — running JavaScript when the page needs it and returning the page as files the agent can read — so it works from the real page instead of a search guess, an empty app shell, or a login wall, all without touching the browser you use every day."
+  desc "Give your AI agent its own private browser — so it reads the real page, past logins and bot walls, without ever touching yours."
   homepage "https://github.com/agentfirstkit/agent-first-http"
-  version "0.7.0"
+  version "0.7.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.7.0/afhttp-v0.7.0-aarch64-apple-darwin.tar.gz"
-      sha256 "e97eff7f50a40e30a6850d83ed7ef0afb630bc1d56e356076ae18e98cd92d57e"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.7.1/afhttp-v0.7.1-aarch64-apple-darwin.tar.gz"
+      sha256 "09812f17f452da0e5ffa768eed8248a06270d4d72c6b3cb8c369a2ff46a2afe1"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.7.0/afhttp-v0.7.0-x86_64-apple-darwin.tar.gz"
-      sha256 "8ebf655e04e01ab183261734f22321431d107b9da4a0f73ce09d61b1f583a1cb"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.7.1/afhttp-v0.7.1-x86_64-apple-darwin.tar.gz"
+      sha256 "a4dcc09b98ffe44d9e34129ed24eb7d6dc3b1aa9bcde19a4262a85946a36866a"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.7.0/afhttp-v0.7.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3e24b02cb79aa0c18092d2bf75d51d2a8825b6b0045a3ee8127502278c930575"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.7.1/afhttp-v0.7.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "05d45ad720e2a58c4ff8433bc398a340f0124014ec47fccb8fcd40f389de3236"
     end
   end
 
