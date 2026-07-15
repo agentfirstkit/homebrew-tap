@@ -1,24 +1,24 @@
 class Afdata < Formula
   desc "A naming convention that lets AI agents understand your data without being told what it means."
   homepage "https://github.com/agentfirstkit/agent-first-data"
-  version "0.16.1"
+  version "0.17.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.16.1/afdata-v0.16.1-aarch64-apple-darwin.tar.gz"
-      sha256 "a96529c5c9b77ededa892cd981353874258372e2d912a1256b23f5c0d570f110"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.17.0/afdata-v0.17.0-aarch64-apple-darwin.tar.gz"
+      sha256 "799e7f78fa280dbe439b687028247124343f8a4cdc2b2e401e90fb03e8d8a7d6"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.16.1/afdata-v0.16.1-x86_64-apple-darwin.tar.gz"
-      sha256 "a3b3ec47634f6037cca28da21f4e5ba5e01458ef91f5f84dedb1275c3a3ad4d7"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.17.0/afdata-v0.17.0-x86_64-apple-darwin.tar.gz"
+      sha256 "6fb74dcc64f7099c3ca85af325506c04efcc062effbf83d76c0620efdc1b0adc"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.16.1/afdata-v0.16.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "94a30a5509d59a2c7b93fd225a732d99e0b0d1416d9f6e1aa1d807325565c3b1"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.17.0/afdata-v0.17.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f892c4678757bc3cd838d52f0a56bed27b621838580891cf4607a94ec5c7a48f"
     end
   end
 
