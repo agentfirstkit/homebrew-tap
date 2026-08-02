@@ -1,24 +1,24 @@
 class Afslug < Formula
   desc "Rust slug generation with explicit caller configuration for path and URL path segments."
   homepage "https://github.com/agentfirstkit/agent-first-slug"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-slug/releases/download/v0.5.0/afslug-v0.5.0-aarch64-apple-darwin.tar.gz"
-      sha256 "1ee3359e13edb901bfa30b407b49e27fcc9c78290bcdf348f079903a38f66c75"
+      url "https://github.com/agentfirstkit/agent-first-slug/releases/download/v0.6.0/afslug-v0.6.0-aarch64-apple-darwin.tar.gz"
+      sha256 "12efe6270513e165c74e0d8fed662e0d946dff0e0b2d4dcd76a107251a754eae"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-slug/releases/download/v0.5.0/afslug-v0.5.0-x86_64-apple-darwin.tar.gz"
-      sha256 "5053c55bc5e6deb0afd434879255229bc4a0ba65c87b18690ea389c555d3c7f2"
+      url "https://github.com/agentfirstkit/agent-first-slug/releases/download/v0.6.0/afslug-v0.6.0-x86_64-apple-darwin.tar.gz"
+      sha256 "e6c6bbe9e79009191ff9eb63101981c5644547764e04585d322995a64ed6bc60"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-slug/releases/download/v0.5.0/afslug-v0.5.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "94d23661682dcebfa634d715d09ae66109eb2bc99b72a436d7eb26b2e0acd9c6"
+      url "https://github.com/agentfirstkit/agent-first-slug/releases/download/v0.6.0/afslug-v0.6.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "89938004c90681dea90c4b1d15af5cdb5c30e65c01c17b5abc554653f54c3b43"
     end
   end
 
