@@ -12,7 +12,7 @@ Homepage: https://agentfirstkit.com
 
 | Formula | Description |
 |---|---|
-| [afdata](Formula/afdata.rb) | A naming convention that lets AI agents understand your data without being told what it means, plus a CLI and library for reading and safely editing structured JSON, TOML, YAML, dotenv, and INI documents. |
+| [afdata](Formula/afdata.rb) | A naming convention that lets AI agents understand your data without being told what it means, plus a CLI and library for reading Markdown structure and safely editing structured JSON, TOML, YAML, dotenv, and INI documents. |
 | [afhttp](Formula/afhttp.rb) | Give your AI agent its own private browser — so it reads the real page, past logins and bot walls, without ever touching yours. |
 | [afmail](Formula/afmail.rb) | Let your AI agent work your inbox — email pulled into plain files it reads, sorts, and drafts on your machine, with nothing sent until you confirm. |
 | [afpay](Formula/afpay.rb) | A payment tool for AI agents — send and receive across five networks through one interface, with spending limits you control. |
