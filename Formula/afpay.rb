@@ -1,24 +1,24 @@
 class Afpay < Formula
   desc "A payment tool for AI agents — send and receive across five networks through one interface, with spending limits you control."
   homepage "https://github.com/agentfirstkit/agent-first-pay"
-  version "0.8.0"
+  version "0.9.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-pay/releases/download/v0.8.0/afpay-v0.8.0-aarch64-apple-darwin.tar.gz"
-      sha256 "13c6849de10b1c6ba36a812f2bdabb6282bade9bcaf9fb2889ac5865f33c8e3e"
+      url "https://github.com/agentfirstkit/agent-first-pay/releases/download/v0.9.0/afpay-v0.9.0-aarch64-apple-darwin.tar.gz"
+      sha256 "dee401f5eac2c304bbb0407315c9cfd7b1213f392076a12d630faab083d48111"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-pay/releases/download/v0.8.0/afpay-v0.8.0-x86_64-apple-darwin.tar.gz"
-      sha256 "2a06e81f4f5f6e6a39a2687fcb174c3a45526888285c5094f40f5813bd8d538e"
+      url "https://github.com/agentfirstkit/agent-first-pay/releases/download/v0.9.0/afpay-v0.9.0-x86_64-apple-darwin.tar.gz"
+      sha256 "075f840b46e62e6e8324d1b221b25b4c69cc8d234e9eb30cf2f02456c89d56d0"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-pay/releases/download/v0.8.0/afpay-v0.8.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "398f59097e15abda3c363f2dab649c7a1ac0e21a389f43c9b113c77d7703c65d"
+      url "https://github.com/agentfirstkit/agent-first-pay/releases/download/v0.9.0/afpay-v0.9.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "5b2b4484bdc0d91fc7273dac44d938bed6d00d78f6aeb108145484b61daf4180"
     end
   end
 
