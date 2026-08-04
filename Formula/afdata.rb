@@ -1,24 +1,24 @@
 class Afdata < Formula
   desc "A naming convention that lets AI agents understand your data without being told what it means, plus a CLI and library for reading Markdown structure and safely editing structured JSON, TOML, YAML, dotenv, and INI documents."
   homepage "https://github.com/agentfirstkit/agent-first-data"
-  version "0.30.0"
+  version "0.31.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.30.0/afdata-v0.30.0-aarch64-apple-darwin.tar.gz"
-      sha256 "1217db1ffea66370264951a3f1f3bf248ea032d0e31988f25a95fca94945357d"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.31.0/afdata-v0.31.0-aarch64-apple-darwin.tar.gz"
+      sha256 "54404dee553ab3d6a5f41f27340fbebe311caf5f7937ee28ee56f48091e71053"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.30.0/afdata-v0.30.0-x86_64-apple-darwin.tar.gz"
-      sha256 "9f9a621cd26beb7c4214ba4204b965cd87b496326d48498c3727e3c8cea5bba3"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.31.0/afdata-v0.31.0-x86_64-apple-darwin.tar.gz"
+      sha256 "ea10ce3002b2f48674dab569cad716c5d49b874b6c201e6da42b99760a5fa5e1"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.30.0/afdata-v0.30.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "dee2e22e68dec943c6be15cdcb4c1a24db07a4f56eab763524ce40a924f5700a"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.31.0/afdata-v0.31.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "cdc676e914c74861c997e1687785aa28c4681dcb266c622706de11dc8b2392ef"
     end
   end
 
