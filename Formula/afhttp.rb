@@ -1,24 +1,24 @@
 class Afhttp < Formula
   desc "Give your AI agent its own private browser — so it reads the real page, past logins and bot walls, without ever touching yours."
   homepage "https://github.com/agentfirstkit/agent-first-http"
-  version "0.10.1"
+  version "0.11.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.10.1/afhttp-v0.10.1-aarch64-apple-darwin.tar.gz"
-      sha256 "bf33a47bf5713d04c464e7ad054b84aa595f124a69289ad4502f3c2876cfd4fc"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.11.0/afhttp-v0.11.0-aarch64-apple-darwin.tar.gz"
+      sha256 "48c761c4eb33de6acf66f7736a0902ad2799e9e2f57fcc04c805317dbd5f0255"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.10.1/afhttp-v0.10.1-x86_64-apple-darwin.tar.gz"
-      sha256 "9de70b531a923d7bf4ebf5a662053e35f6127c6be6be156f145b5fbd1cbc3f1f"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.11.0/afhttp-v0.11.0-x86_64-apple-darwin.tar.gz"
+      sha256 "dcfc4cc3b6f861fc4e0c2ad4eabb9b7424ebf19c8c83459091b81bb525dd6562"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.10.1/afhttp-v0.10.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3e08c652cfcce955ac839052372b33fa3cd3c14b884619eaa9b675874c2302ad"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.11.0/afhttp-v0.11.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "0eef909668dd196d1d012bfffccaf4635563054ae67b57cdb1634a2c980c8d98"
     end
   end
 
