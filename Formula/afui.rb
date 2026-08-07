@@ -1,24 +1,24 @@
 class Afui < Formula
   desc "Let your AI agent hand you a real interface when a step needs a person — a window opens, you decide, and the agent gets a typed answer back."
   homepage "https://github.com/agentfirstkit/agent-first-ui"
-  version "0.3.0"
+  version "0.3.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.3.0/afui-v0.3.0-aarch64-apple-darwin.tar.gz"
-      sha256 "8a243e0d0c4904ab0901f068a3549456cda992547c55bf4cd026ee9c23c1ab18"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.3.1/afui-v0.3.1-aarch64-apple-darwin.tar.gz"
+      sha256 "ebb1d879b9839e638f037b76741c3094bf16b053e76a714828609b09e061d533"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.3.0/afui-v0.3.0-x86_64-apple-darwin.tar.gz"
-      sha256 "cc655f0525eab279f1270743b0ca31e3184a5dbe167acbf9137c06f4c932471c"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.3.1/afui-v0.3.1-x86_64-apple-darwin.tar.gz"
+      sha256 "9cb5d74f1d67fe986e7e188c76be9d0d0d911b2a4d7a1ccbb794e2a66b48e6f0"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.3.0/afui-v0.3.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "1faf05fa750383d4b5e841b2976f5e45f51030863deec5c59d0b521f8102693f"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.3.1/afui-v0.3.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "7085abd4d0f8ecd3638b5f3e484cb3cf7145c1121c85dec9fda621e93a9e8f3d"
     end
   end
 
