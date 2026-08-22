@@ -1,24 +1,27 @@
 class Afdata < Formula
-  desc "A naming convention that lets AI agents understand your data without being told what it means, plus a CLI and library for reading Markdown structure and safely editing structured JSON, TOML, YAML, dotenv, and INI documents."
+  desc "Lint, render, and safely edit structured agent-facing data"
   homepage "https://github.com/agentfirstkit/agent-first-data"
-  version "0.33.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.33.0/afdata-v0.33.0-aarch64-apple-darwin.tar.gz"
-      sha256 "5724962a21c4db8e532aa716d039b6faaf72c84e80570dab10df31ecfd941358"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.34.0/afdata-v0.34.0-aarch64-apple-darwin.tar.gz"
+      sha256 "8487af69a4f2ddf58ac5013d6bf234fa6f8c498cac8d17e981b5d683007d24d4"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.33.0/afdata-v0.33.0-x86_64-apple-darwin.tar.gz"
-      sha256 "eccc657fe7d83ba476d4561092c9040216f7733f36c2d66a10956b3ef4227cc1"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.34.0/afdata-v0.34.0-x86_64-apple-darwin.tar.gz"
+      sha256 "cfa896825508ffb49355e183182cb47b2775b5603df3ffcdebfcaaa9ad5dd68e"
     end
   end
 
   on_linux do
+    on_arm do
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.34.0/afdata-v0.34.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "72cbc5d2b820de0fa490c17d03e061a368517ff93bff1a628718ac246784a4f7"
+    end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.33.0/afdata-v0.33.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "1fac1e88272a5c0f909ad912a6622f471707b6b9347c251841725a7e3d61f220"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.34.0/afdata-v0.34.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "3d912b854055ed32ad0559d39630d87f8d27cefafae35501dbf2c8303fa98ea0"
     end
   end
 
@@ -28,5 +31,7 @@ class Afdata < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/afdata --version")
+    (testpath/"valid.json").write(%({"duration_ms":25}\n))
+    system bin/"afdata", "lint", testpath/"valid.json"
   end
 end
