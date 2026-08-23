@@ -31,7 +31,9 @@ class Afmail < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/afmail --version")
-    system bin/"afmail", "init", testpath/"mail"
-    system bin/"afmail", "doctor", "--workspace", testpath/"mail"
+    testpath.cd do
+      system bin/"afmail", "init", "mail"
+      system bin/"afmail", "doctor", "--workspace", "mail"
+    end
   end
 end

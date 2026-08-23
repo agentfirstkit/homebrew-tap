@@ -38,16 +38,32 @@ tap_link() {
   printf '%s\n' "$target"
 }
 
+# The link this run created, if it got that far. Not a local inside
+# `run_install`: the EXIT trap below runs when the shell exits, which is after
+# that function has already returned and taken its locals with it — so a trap
+# reading a local finds nothing, and under `set -u` that is a fatal error at the
+# end of an otherwise successful run. Every install job failed exactly there,
+# after installing, testing, auditing and uninstalling every formula.
+TAP_LINK=""
+
+# Removed however this ends, so a failed install does not leave a link into a
+# working tree behind on a developer's machine. Guarded because the trap is
+# armed for the whole script and static mode never sets it.
+remove_tap_link() {
+  if [ -n "${TAP_LINK:-}" ]; then
+    rm -f "$TAP_LINK"
+    TAP_LINK=""
+  fi
+}
+trap remove_tap_link EXIT
+
 run_install() {
-  local formula link status=0
+  local formula status=0
   if ! command -v brew >/dev/null 2>&1; then
     echo "Homebrew is required for install mode" >&2
     return 1
   fi
-  link="$(tap_link)" || return 1
-  # Removed however this ends, so a failed install does not leave a link into a
-  # working tree behind on a developer's machine.
-  trap 'rm -f "$link"' EXIT
+  TAP_LINK="$(tap_link)" || return 1
 
   if [ -n "$FORMULA_FILTER" ]; then
     formula="$ROOT/$FORMULA_FILTER"
