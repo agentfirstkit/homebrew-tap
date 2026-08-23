@@ -1,24 +1,27 @@
 class Afmail < Formula
-  desc "Let your AI agent work your inbox — email pulled into plain files it reads, sorts, and drafts on your machine, with nothing sent until you confirm."
+  desc "Local-first inbox triage, drafting, review, and delivery"
   homepage "https://github.com/agentfirstkit/agent-first-mail"
-  version "0.10.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.10.0/afmail-v0.10.0-aarch64-apple-darwin.tar.gz"
-      sha256 "38647c2700b3200417bde5cbe8d3f2b1f832bf28b8ef540a48d3c7ec2deb7b3f"
+      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.11.0/afmail-v0.11.0-aarch64-apple-darwin.tar.gz"
+      sha256 "022b5ae0884aaa89f0cd7f553bd743e13016fed88dc4a0fe4b1703428740870a"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.10.0/afmail-v0.10.0-x86_64-apple-darwin.tar.gz"
-      sha256 "9a01ec0559818c37e7fa1480b6663bbde0bcebaa401faea52f4d3d73f87fb6eb"
+      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.11.0/afmail-v0.11.0-x86_64-apple-darwin.tar.gz"
+      sha256 "8d39ef504ed2490bcb8127d82688434ecd02b5f75daea05c0f0848941c8a2294"
     end
   end
 
   on_linux do
+    on_arm do
+      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.11.0/afmail-v0.11.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "eeced0720d6e4d90fe9d082466a32b8a1aaac966051592f73a18d60448ce3aac"
+    end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.10.0/afmail-v0.10.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "14e4b389a2eb97c0bef3b09bba84976bf23390c170fe164d7e5ed75f7d46a610"
+      url "https://github.com/agentfirstkit/agent-first-mail/releases/download/v0.11.0/afmail-v0.11.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "3e025034d07806503f135a646b33e9170db12b7e77dcee824335595a2dcce4aa"
     end
   end
 
@@ -28,5 +31,7 @@ class Afmail < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/afmail --version")
+    system bin/"afmail", "init", testpath/"mail"
+    system bin/"afmail", "doctor", "--workspace", testpath/"mail"
   end
 end
