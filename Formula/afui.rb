@@ -1,24 +1,27 @@
 class Afui < Formula
-  desc "Let your AI agent hand you a real interface when a step needs a person — a window opens, values can stay live in both directions, and the session ends with one typed outcome."
+  desc "Typed local interfaces for agent workflows needing human input"
   homepage "https://github.com/agentfirstkit/agent-first-ui"
-  version "0.4.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.4.0/afui-v0.4.0-aarch64-apple-darwin.tar.gz"
-      sha256 "c6e84198068b6e5905409a0b9ac35c64a5d7eb7ecd54ad6e81fd3bbc860e3053"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.5.0/afui-v0.5.0-aarch64-apple-darwin.tar.gz"
+      sha256 "e46e2b896ac2a60f97a9d5c49daf4ae1f9c4571790782e1784f47a19f2bf191b"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.4.0/afui-v0.4.0-x86_64-apple-darwin.tar.gz"
-      sha256 "6dc8f61209a9ef0d8d0bc91212e00e25602a1216e06562d83115a00ba19b2b07"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.5.0/afui-v0.5.0-x86_64-apple-darwin.tar.gz"
+      sha256 "57d7240f3523c65dad8d3e7296ac94fe9407fc62c46d0a7884bb0a7b5661431b"
     end
   end
 
   on_linux do
+    on_arm do
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.5.0/afui-v0.5.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "e9fee771cc8477fc67d0019132ef57d6278d9e9a3d0df17345a737bd8bccec1a"
+    end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.4.0/afui-v0.4.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "d92c6aeeee97a8fa4025a3a56ca215cf1fc2bcba1eb84e19276668c6fd132477"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.5.0/afui-v0.5.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "6f3a06e7612eb356b7eac2f1e5b58dac46b48a9c8a28ca7725b1df6f3f6b2c26"
     end
   end
 
@@ -28,5 +31,6 @@ class Afui < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/afui --version")
+    assert_match "CLI reference", shell_output("#{bin}/afui --docs")
   end
 end
