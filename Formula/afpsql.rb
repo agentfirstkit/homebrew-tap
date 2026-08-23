@@ -1,24 +1,27 @@
 class Afpsql < Formula
-  desc "A PostgreSQL interface for AI agents: reliable, structured, explicit, and read-only by default."
+  desc "Structured PostgreSQL access with explicit read and write modes"
   homepage "https://github.com/agentfirstkit/agent-first-psql"
-  version "0.10.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.10.0/afpsql-v0.10.0-aarch64-apple-darwin.tar.gz"
-      sha256 "3ed778b2c15fd9845d48a2c4e0e77dac5126f9c9cd7cd825c9211d41666f81b9"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.11.0/afpsql-v0.11.0-aarch64-apple-darwin.tar.gz"
+      sha256 "5e31bc34d5c36d39d4d74843ee423075273ef59adff22df2172019af36e89ef9"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.10.0/afpsql-v0.10.0-x86_64-apple-darwin.tar.gz"
-      sha256 "d89dedb562cd0a6dd05e3bfe2512301a4fcf7744aa05a5354b6dcbab4f4f26df"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.11.0/afpsql-v0.11.0-x86_64-apple-darwin.tar.gz"
+      sha256 "5a07fe3900c31cb0088089d52b8439120df9b1f6507607b52889d1478de1afad"
     end
   end
 
   on_linux do
+    on_arm do
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.11.0/afpsql-v0.11.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "6a7d86fba498a9ebb1bea799b12256f0fb6917724f3804760d859e51177808a9"
+    end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.10.0/afpsql-v0.10.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "03340ed4f9145a579b0421547acde62f7e2ef4cd7e2107af7cae5f1423922c6e"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.11.0/afpsql-v0.11.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "8abe5a5a275de47e100457e413879dd9189e19a440573242457af5685f2a9f8e"
     end
   end
 
@@ -29,6 +32,7 @@ class Afpsql < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/afpsql --version")
+    assert_match "CLI reference", shell_output("#{bin}/afpsql --docs")
     assert_match version.to_s, shell_output("#{bin}/afpsql-readonly --version")
   end
 end
