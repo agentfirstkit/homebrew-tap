@@ -1,24 +1,27 @@
 class Afhttp < Formula
-  desc "Give your AI agent its own private browser — so it reads the real page, past logins and bot walls, without ever touching yours."
+  desc "Private browser automation with explicit profiles and takeover"
   homepage "https://github.com/agentfirstkit/agent-first-http"
-  version "0.12.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.12.0/afhttp-v0.12.0-aarch64-apple-darwin.tar.gz"
-      sha256 "18c00a0790159a8192948af7c73ae7ae799da3ce5a9c7369f51ce61a33c61cb9"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.0/afhttp-v0.13.0-aarch64-apple-darwin.tar.gz"
+      sha256 "4718dcc16388153957311725fdb2db9bcbb2d9f8b1da2a099f98557bd001ff07"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.12.0/afhttp-v0.12.0-x86_64-apple-darwin.tar.gz"
-      sha256 "d14db683b9ba8d9f87221756ff1b693b3739dbb9d1f5d63a3d601107317422b2"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.0/afhttp-v0.13.0-x86_64-apple-darwin.tar.gz"
+      sha256 "1195f9e0495af682a6e2532bd2405aa3959f309f1ac598f43337cdbc0e2124b3"
     end
   end
 
   on_linux do
+    on_arm do
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.0/afhttp-v0.13.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "9fced2f081e68d13ca944f752dc498fdfc86a97a7d29367b70f9929ebeac9a26"
+    end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.12.0/afhttp-v0.12.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "7e74b8eee4bb2a174f8bbf36cd6139b941be263c9d436bbead6c26cc7392a6fb"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.0/afhttp-v0.13.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "1c7b341a4c2e204a1a894fba0b683c53ea9ab333628a21e71cde0da0dd41906d"
     end
   end
 
@@ -28,5 +31,6 @@ class Afhttp < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/afhttp --version")
+    assert_match "CLI reference", shell_output("#{bin}/afhttp --docs")
   end
 end
