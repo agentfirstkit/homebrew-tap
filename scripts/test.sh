@@ -24,15 +24,35 @@ run_static() {
 # part of what is tested rather than an assumption.
 TAP="agentfirstkit/tap"
 
+# Prints the link this call created, and nothing when it adopted one that was
+# already there. What it prints is what gets removed on the way out, so a link
+# this script did not make is never a link this script deletes.
 tap_link() {
-  local taps target
+  local taps target existing root
   taps="$(brew --repository)/Library/Taps/agentfirstkit"
   target="$taps/homebrew-tap"
+  root="$(cd -P "$ROOT" && pwd -P)"
   if [ -e "$target" ] && [ ! -L "$target" ]; then
     echo "$TAP is already tapped here; this gate will not replace it." >&2
     echo "  run \`brew untap $TAP\` first, or run install mode in CI." >&2
     return 1
   fi
+  if [ -L "$target" ] && [ -e "$target" ]; then
+    # CI's setup-homebrew links the checkout in under this exact name before
+    # this script runs, and removes it again in its own post step. Removing it
+    # here made that step fail with "No such file or directory" on a run whose
+    # every formula had installed, tested and audited cleanly — so the link is
+    # adopted, and its owner keeps the job of taking it away.
+    existing="$(cd -P "$target" 2>/dev/null && pwd -P)" || existing=""
+    if [ "$existing" != "$root" ]; then
+      echo "$TAP is already linked to ${existing:-an unreadable path}, not this" >&2
+      echo "  checkout; refusing to retarget a link this gate does not own." >&2
+      return 1
+    fi
+    return 0
+  fi
+  # A dangling link is this gate's own leftover from a run that died before its
+  # cleanup, so replacing it is safe and it becomes ours again.
   mkdir -p "$taps"
   ln -sfn "$ROOT" "$target"
   printf '%s\n' "$target"
