@@ -15,6 +15,7 @@ Intel Linux.
 | Formula | Install command | Description |
 |---|---|---|
 | [afdata](Formula/afdata.rb) | `brew install agentfirstkit/tap/afdata` | Lint, render, and safely edit structured agent-facing data |
+| [affiles](Formula/affiles.rb) | `brew install agentfirstkit/tap/affiles` | One directory, read-only, in front of a person who is elsewhere |
 | [afhttp](Formula/afhttp.rb) | `brew install agentfirstkit/tap/afhttp` | Private browser automation with explicit profiles and takeover |
 | [afmail](Formula/afmail.rb) | `brew install agentfirstkit/tap/afmail` | Local-first inbox triage, drafting, review, and delivery |
 | [afpay](Formula/afpay.rb) | `brew install agentfirstkit/tap/afpay` | Policy-controlled payments across multiple wallet networks |
