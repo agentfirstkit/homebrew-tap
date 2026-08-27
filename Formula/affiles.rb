@@ -5,23 +5,23 @@ class Affiles < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.0/affiles-v0.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "ace09637f72832aa078aafbce8d8bd831ceecaffdf3688f6e1dc0ec052877a2f"
+      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.1/affiles-v0.1.1-aarch64-apple-darwin.tar.gz"
+      sha256 "1754e290e253ac85e17b3e35e5a637779946902c4bd64892e746ee2ccad100a1"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.0/affiles-v0.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "7aef838bc3f9c31efc7432f43ba1ba07f8ffd202303aeb911846186ba3d2a112"
+      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.1/affiles-v0.1.1-x86_64-apple-darwin.tar.gz"
+      sha256 "1d2f6b564ebb1de2590c9a4237a2e85d34d0e4f88c58b4dbee19d013ab8e623a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.0/affiles-v0.1.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "2fa9fec03238f8b642fde4c9476e77836ab042de82dd164a6048603735d92127"
+      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.1/affiles-v0.1.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "0c832328a33b7cc686a4009826c9b61d2b892b57a4037d65785c8a797072fa87"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.0/affiles-v0.1.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "6c0591672495f2284503137e35b2ba73001c5804680e6bcb71900431708c1739"
+      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.1/affiles-v0.1.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "27078b1168a2cfde2f957c5262baa6af59f9bb025070eef9be46c50ba329c15e"
     end
   end
 
