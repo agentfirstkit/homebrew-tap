@@ -5,23 +5,23 @@ class Afterminal < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-terminal/releases/download/v0.1.0/afterminal-v0.1.0-aarch64-apple-darwin.tar.gz"
-      sha256 "74a2213202ed6d499e14954013835fa87301fdf00ee434981d8f8dd93ee536b5"
+      url "https://github.com/agentfirstkit/agent-first-terminal/releases/download/v0.2.0/afterminal-v0.2.0-aarch64-apple-darwin.tar.gz"
+      sha256 "c18a0f647180c592a9bf00231d8b0f3f2b36e5aecd7ae2b646206d4d3fe35a20"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-terminal/releases/download/v0.1.0/afterminal-v0.1.0-x86_64-apple-darwin.tar.gz"
-      sha256 "837a0e9522b1c09b55899f6f51a9b04b0ee90f9ef366ace96e31e6d8d7e6050a"
+      url "https://github.com/agentfirstkit/agent-first-terminal/releases/download/v0.2.0/afterminal-v0.2.0-x86_64-apple-darwin.tar.gz"
+      sha256 "6e25f328e89842273cd2740e3e6007d027407087389e1f7d56c0d8b3744598a4"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-terminal/releases/download/v0.1.0/afterminal-v0.1.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "e2331e3147c68128f9f8c945dcb7a1846d0c5230b7c28143e33f866075d1c34e"
+      url "https://github.com/agentfirstkit/agent-first-terminal/releases/download/v0.2.0/afterminal-v0.2.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "88c177ee7625331da8d41be7f6e7e8793631824f268e03e0b1eb311ef6bd930b"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-terminal/releases/download/v0.1.0/afterminal-v0.1.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "2753cecdea869ca2030be105e4f49d92dbee1733ed57825e5d8e89fc331de8ff"
+      url "https://github.com/agentfirstkit/agent-first-terminal/releases/download/v0.2.0/afterminal-v0.2.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "4e37f5ec6bf7d8bf7927d2d69a29086ca2081264753e8aa68ed92c4fd7467963"
     end
   end
 
