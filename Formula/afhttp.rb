@@ -5,23 +5,23 @@ class Afhttp < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.0/afhttp-v0.13.0-aarch64-apple-darwin.tar.gz"
-      sha256 "4718dcc16388153957311725fdb2db9bcbb2d9f8b1da2a099f98557bd001ff07"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.1/afhttp-v0.13.1-aarch64-apple-darwin.tar.gz"
+      sha256 "8fc53c10d0491f9d2b21b1f14632f2c01e9fecb14067f93966f3b245670f52c4"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.0/afhttp-v0.13.0-x86_64-apple-darwin.tar.gz"
-      sha256 "1195f9e0495af682a6e2532bd2405aa3959f309f1ac598f43337cdbc0e2124b3"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.1/afhttp-v0.13.1-x86_64-apple-darwin.tar.gz"
+      sha256 "2e31b48e60a48ca26679ef276da36d508ef27869efd7fe31eea32a4d02f14b40"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.0/afhttp-v0.13.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "9fced2f081e68d13ca944f752dc498fdfc86a97a7d29367b70f9929ebeac9a26"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.1/afhttp-v0.13.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "82e704d88904c3aa53dccfbf8a76bbd1516651c85ba0cec1b0d24283a5371310"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.0/afhttp-v0.13.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "1c7b341a4c2e204a1a894fba0b683c53ea9ab333628a21e71cde0da0dd41906d"
+      url "https://github.com/agentfirstkit/agent-first-http/releases/download/v0.13.1/afhttp-v0.13.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "857df4f29148983e0b03039863e76cc71beeca0c3c2009d9fe13150321bfea03"
     end
   end
 
