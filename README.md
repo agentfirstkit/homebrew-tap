@@ -21,6 +21,7 @@ Intel Linux.
 | [afpay](Formula/afpay.rb) | `brew install agentfirstkit/tap/afpay` | Policy-controlled payments across multiple wallet networks |
 | [afpsql](Formula/afpsql.rb) | `brew install agentfirstkit/tap/afpsql` | Structured PostgreSQL access with explicit read and write modes |
 | [afslug](Formula/afslug.rb) | `brew install agentfirstkit/tap/afslug` | Deterministic Unicode slugs for filesystem and URL segments |
+| [afterminal](Formula/afterminal.rb) | `brew install agentfirstkit/tap/afterminal` | A live terminal an agent drives and a person can take over |
 | [afui](Formula/afui.rb) | `brew install agentfirstkit/tap/afui` | Typed local interfaces for agent workflows needing human input |
 
 <!-- Generated from the package channel policy; do not edit by hand. -->

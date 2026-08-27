@@ -25,7 +25,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-15, macos-15-intel, ubuntu-24.04, ubuntu-24.04-arm]
-        formula: [afdata, affiles, afhttp, afmail, afpay, afpsql, afslug, afui]
+        formula: [afdata, affiles, afhttp, afmail, afpay, afpsql, afslug, afterminal, afui]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
