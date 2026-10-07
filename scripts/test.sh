@@ -28,10 +28,11 @@ TAP="agentfirstkit/tap"
 # already there. What it prints is what gets removed on the way out, so a link
 # this script did not make is never a link this script deletes.
 tap_link() {
-  local taps target existing root
-  taps="$(brew --repository)/Library/Taps/agentfirstkit"
+  local repository taps target existing root
+  repository="$(brew --repository)" || return 1
+  taps="$repository/Library/Taps/agentfirstkit"
   target="$taps/homebrew-tap"
-  root="$(cd -P "$ROOT" && pwd -P)"
+  root="$(cd -P "$ROOT" && pwd -P)" || return 1
   if [ -e "$target" ] && [ ! -L "$target" ]; then
     echo "$TAP is already tapped here; this gate will not replace it." >&2
     echo "  run \`brew untap $TAP\` first, or run install mode in CI." >&2
@@ -53,8 +54,7 @@ tap_link() {
   fi
   # A dangling link is this gate's own leftover from a run that died before its
   # cleanup, so replacing it is safe and it becomes ours again.
-  mkdir -p "$taps"
-  ln -sfn "$ROOT" "$target"
+  mkdir -p "$taps" && ln -sfn "$ROOT" "$target" || return 1
   printf '%s\n' "$target"
 }
 
@@ -104,7 +104,7 @@ install_formula() {
     echo "Refusing to alter an already-installed formula: $name" >&2
     return 1
   fi
-  brew install --formula "$TAP/$name"
+  brew install --formula "$TAP/$name" || return $?
   brew test "$TAP/$name" || status=$?
   brew audit --strict "$TAP/$name" || status=$?
   # Always clean up a package this test installed, including after a failed

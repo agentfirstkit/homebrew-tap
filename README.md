@@ -19,7 +19,7 @@ Intel Linux.
 | [afhttp](Formula/afhttp.rb) | `brew install agentfirstkit/tap/afhttp` | Private browser automation with explicit profiles and takeover |
 | [afmail](Formula/afmail.rb) | `brew install agentfirstkit/tap/afmail` | Local-first inbox triage, drafting, review, and delivery |
 | [afpay](Formula/afpay.rb) | `brew install agentfirstkit/tap/afpay` | Policy-controlled payments across multiple wallet networks |
-| [afpsql](Formula/afpsql.rb) | `brew install agentfirstkit/tap/afpsql` | Structured PostgreSQL access with explicit read and write modes |
+| [afpsql](Formula/afpsql.rb) | `brew install agentfirstkit/tap/afpsql` | Structured PostgreSQL access with explicit read and write modes; also installs `afpsql-readonly` |
 | [afslug](Formula/afslug.rb) | `brew install agentfirstkit/tap/afslug` | Deterministic Unicode slugs for filesystem and URL segments |
 | [afterminal](Formula/afterminal.rb) | `brew install agentfirstkit/tap/afterminal` | A live terminal an agent drives and a person can take over |
 | [afui](Formula/afui.rb) | `brew install agentfirstkit/tap/afui` | Typed local interfaces for agent workflows needing human input |

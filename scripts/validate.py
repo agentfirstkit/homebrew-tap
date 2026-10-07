@@ -11,17 +11,109 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FORMULA_DIR = ROOT / "Formula"
 README = ROOT / "README.md"
-TARGETS = {
-    "aarch64-apple-darwin",
-    "x86_64-apple-darwin",
-    "aarch64-unknown-linux-gnu",
-    "x86_64-unknown-linux-gnu",
+LEAF_TARGETS = {
+    ("on_macos", "on_arm"): "aarch64-apple-darwin",
+    ("on_macos", "on_intel"): "x86_64-apple-darwin",
+    ("on_linux", "on_arm"): "aarch64-unknown-linux-gnu",
+    ("on_linux", "on_intel"): "x86_64-unknown-linux-gnu",
 }
+TARGETS = set(LEAF_TARGETS.values())
 
 
 def fail(message: str) -> None:
     print(message, file=sys.stderr)
     raise SystemExit(1)
+
+
+def validate_downloads(path: Path, text: str) -> None:
+    """Scan the generated OS/architecture blocks without interpreting Ruby."""
+    name = path.stem
+    os_block: str | None = None
+    leaf: tuple[str, str] | None = None
+    seen_os: set[str] = set()
+    downloads: dict[tuple[str, str], dict[str, str]] = {}
+    versions: set[str] = set()
+    in_method = False
+
+    for line_number, line in enumerate(text.splitlines(), 1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        location = f"{path}:{line_number}"
+        block = re.fullmatch(r"(\s*)(on_[a-z_]+) do", line)
+        if block:
+            indent, kind = block.groups()
+            if kind in {"on_macos", "on_linux"}:
+                if indent != "  " or os_block is not None or in_method:
+                    fail(f"{location}: misplaced {kind} block")
+                if kind in seen_os:
+                    fail(f"{location}: duplicate {kind} block")
+                seen_os.add(kind)
+                os_block = kind
+            elif kind in {"on_arm", "on_intel"}:
+                if indent != "    " or os_block is None or leaf is not None:
+                    fail(f"{location}: misplaced {kind} block")
+                leaf = (os_block, kind)
+                if leaf in downloads:
+                    fail(f"{location}: duplicate {os_block}/{kind} leaf block")
+                downloads[leaf] = {}
+            else:
+                fail(f"{location}: unsupported platform block {kind}")
+            continue
+
+        if os_block is not None and stripped == "end":
+            if line == "    end" and leaf is not None:
+                if set(downloads[leaf]) != {"url", "sha256"}:
+                    fail(f"{location}: {leaf[0]}/{leaf[1]} needs exactly one url and sha256")
+                leaf = None
+            elif line == "  end" and leaf is None:
+                os_block = None
+            else:
+                fail(f"{location}: misplaced platform block end")
+            continue
+
+        directive = re.match(r"\s*(url|sha256)\b", line)
+        if directive:
+            kind = directive.group(1)
+            value = re.fullmatch(rf'      {kind} "([^"\n]+)"', line)
+            if leaf is None or value is None:
+                fail(f"{location}: {kind} must be inside an OS/architecture leaf block")
+            if kind in downloads[leaf]:
+                fail(f"{location}: duplicate {kind} in {leaf[0]}/{leaf[1]}")
+            value = value.group(1)
+            downloads[leaf][kind] = value
+            if kind == "sha256":
+                if not re.fullmatch(r"[0-9a-f]{64}", value):
+                    fail(f"{location}: every leaf needs one 64-lowercase-hex SHA-256")
+            else:
+                # Match a supported target suffix instead of splitting on
+                # hyphens, which also occur in pre-release version strings.
+                stem = re.search(rf'/{re.escape(name)}-v([^/"]+)\.(?:tar\.gz|zip)$', value)
+                if stem is None:
+                    fail(f"{location}: download URL must name a {name} release archive")
+                stem = stem.group(1)
+                target = next((target for target in TARGETS if stem.endswith(f"-{target}")), None)
+                if target != LEAF_TARGETS[leaf]:
+                    fail(f"{location}: {leaf[0]}/{leaf[1]} URL must target {LEAF_TARGETS[leaf]}")
+                versions.add(stem[: -len(target) - 1])
+            continue
+
+        if os_block is not None:
+            fail(f"{location}: unexpected statement in platform block")
+        # Generated Formula methods are outside the platform blocks. Remember
+        # their root-level boundaries so an indented block cannot be moved
+        # into install/test and still satisfy the download inventory.
+        if re.match(r"^  (?:def\s|test do$)", line):
+            in_method = True
+        elif line == "  end":
+            in_method = False
+
+    if os_block is not None:
+        fail(f"{path}: unclosed platform block")
+    if set(downloads) != set(LEAF_TARGETS):
+        fail(f"{path}: expected exactly the four OS/architecture leaf blocks")
+    if len(versions) != 1:
+        fail(f"{path}: downloads name {len(versions)} different versions: {sorted(versions)}")
 
 
 def main() -> int:
@@ -47,26 +139,7 @@ def main() -> int:
         if re.search(r'^  version "', text, re.MULTILINE):
             fail(f"{path}: `version` is redundant with the download URL and fails `brew audit --strict`")
 
-        # Split each download on a target this tap actually supports rather
-        # than on a pattern: a version may carry a pre-release suffix with its
-        # own hyphens, and guessing where the version stops would either reject
-        # a legitimate `-rc1` or read half a target triple as a version.
-        stems = re.findall(rf'/{re.escape(name)}-v([^/"]+)\.(?:tar\.gz|zip)"', text)
-        versions: set[str] = set()
-        targets: set[str] = set()
-        for stem in stems:
-            target = next((value for value in TARGETS if stem.endswith(f"-{value}")), None)
-            if target is None:
-                fail(f"{path}: download `{stem}` names no supported target")
-            versions.add(stem[: -len(target) - 1])
-            targets.add(target)
-        if len(versions) != 1:
-            fail(f"{path}: downloads name {len(versions)} different versions: {sorted(versions)}")
-        if targets != TARGETS:
-            fail(f"{path}: platform inventory differs: {sorted(targets)}")
-        hashes = re.findall(r'^\s+sha256 "([0-9a-f]+)"$', text, re.MULTILINE)
-        if len(hashes) != len(TARGETS) or any(len(value) != 64 for value in hashes):
-            fail(f"{path}: every platform needs one 64-hex SHA-256")
+        validate_downloads(path, text)
 
         test = text.split("  test do\n", 1)
         if len(test) != 2 or "  end\nend\n" not in test[1]:
