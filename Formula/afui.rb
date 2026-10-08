@@ -36,13 +36,11 @@ class Afui < Formula
     ENV["AFUI_CONFIG_DIR"] = (testpath/"afui-config").to_s
     ENV["AFUI_SAFE_MODE"] = "0"
     begin
-      testpath.cd do
+      event = testpath.cd do
         system bin/"afui", "frontend", "init", "inspector", "panel",
                "--scope", "workspace", "--frontend-id", "smoke"
-        system bin/"afui", "frontend", "check", "inspector", "panel",
-               "--scope", "workspace", "--stdout-file", testpath/"frontend-check.json"
+        JSON.parse(shell_output("#{bin}/afui frontend check inspector panel --scope workspace"))
       end
-      event = JSON.parse((testpath/"frontend-check.json").read)
       assert_equal "result", event.fetch("kind")
       assert_equal "frontend_check", event.fetch("result").fetch("code")
       assert_equal "smoke", event.fetch("result").fetch("frontend_id")
