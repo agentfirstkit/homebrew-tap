@@ -5,23 +5,23 @@ class Afui < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.5.0/afui-v0.5.0-aarch64-apple-darwin.tar.gz"
-      sha256 "e46e2b896ac2a60f97a9d5c49daf4ae1f9c4571790782e1784f47a19f2bf191b"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.6.0/afui-v0.6.0-aarch64-apple-darwin.tar.gz"
+      sha256 "f2e3f7e83853c44b6be89b034b89e2e57a884b43572fc138a6ee9d1003769a4e"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.5.0/afui-v0.5.0-x86_64-apple-darwin.tar.gz"
-      sha256 "57d7240f3523c65dad8d3e7296ac94fe9407fc62c46d0a7884bb0a7b5661431b"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.6.0/afui-v0.6.0-x86_64-apple-darwin.tar.gz"
+      sha256 "ae4a001979579ed7187ad49984b8540780c742b407f9f6df776f2c82a5dbf986"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.5.0/afui-v0.5.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "e9fee771cc8477fc67d0019132ef57d6278d9e9a3d0df17345a737bd8bccec1a"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.6.0/afui-v0.6.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "208f0ac6d59dc1dffd70ff38a91fa563b5a643cf8be13b11be8fec286c3758ce"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.5.0/afui-v0.5.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "6f3a06e7612eb356b7eac2f1e5b58dac46b48a9c8a28ca7725b1df6f3f6b2c26"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.6.0/afui-v0.6.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "a451c57239a4fd6c4414f875fc381f31ca96b3384a04897b2d2468ff250af2df"
     end
   end
 
@@ -31,6 +31,28 @@ class Afui < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/afui --version")
-    assert_match "CLI reference", shell_output("#{bin}/afui --docs")
+    previous_config = ENV["AFUI_CONFIG_DIR"]
+    previous_safe_mode = ENV["AFUI_SAFE_MODE"]
+    ENV["AFUI_CONFIG_DIR"] = (testpath/"afui-config").to_s
+    ENV["AFUI_SAFE_MODE"] = "0"
+    begin
+      testpath.cd do
+        system bin/"afui", "frontend", "init", "inspector", "panel",
+               "--scope", "workspace", "--frontend-id", "smoke"
+        system bin/"afui", "frontend", "check", "inspector", "panel",
+               "--scope", "workspace", "--stdout-file", testpath/"frontend-check.json"
+      end
+      event = JSON.parse((testpath/"frontend-check.json").read)
+      assert_equal "result", event.fetch("kind")
+      assert_equal "frontend_check", event.fetch("result").fetch("code")
+      assert_equal "smoke", event.fetch("result").fetch("frontend_id")
+      assert_equal "disabled", event.fetch("result").fetch("status")
+      manifest = JSON.parse((testpath/".afui/frontends/inspector/panel/frontend.json").read)
+      assert_equal "smoke", manifest.fetch("frontend_id")
+      assert_equal "1", manifest.fetch("ui_api_version")
+    ensure
+      ENV["AFUI_CONFIG_DIR"] = previous_config
+      ENV["AFUI_SAFE_MODE"] = previous_safe_mode
+    end
   end
 end
