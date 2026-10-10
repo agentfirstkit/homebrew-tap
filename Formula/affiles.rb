@@ -5,23 +5,23 @@ class Affiles < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.1/affiles-v0.1.1-aarch64-apple-darwin.tar.gz"
-      sha256 "1754e290e253ac85e17b3e35e5a637779946902c4bd64892e746ee2ccad100a1"
+      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.2.0/affiles-v0.2.0-aarch64-apple-darwin.tar.gz"
+      sha256 "35038b9c782e23b26f64fde0022434e24bc29d4f997b15a77605c36e0a931dcd"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.1/affiles-v0.1.1-x86_64-apple-darwin.tar.gz"
-      sha256 "1d2f6b564ebb1de2590c9a4237a2e85d34d0e4f88c58b4dbee19d013ab8e623a"
+      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.2.0/affiles-v0.2.0-x86_64-apple-darwin.tar.gz"
+      sha256 "e9c1d8820dcd97bc22525b5ec281dc6f23e3b39bf15ee5460f4e1aaa5b3b44c8"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.1/affiles-v0.1.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "0c832328a33b7cc686a4009826c9b61d2b892b57a4037d65785c8a797072fa87"
+      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.2.0/affiles-v0.2.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "06f1afc1a4232dbfcefc35d26d196a6c564fb0b87acf00cf87e1d2211ccd5da1"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.1.1/affiles-v0.1.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "27078b1168a2cfde2f957c5262baa6af59f9bb025070eef9be46c50ba329c15e"
+      url "https://github.com/agentfirstkit/agent-first-files/releases/download/v0.2.0/affiles-v0.2.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "a221269c481fe0791dd8836aec4fdb3acf33ff5cce84ea9486f23c5a20abc86c"
     end
   end
 
@@ -31,6 +31,9 @@ class Affiles < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/affiles --version")
-    assert_match "CLI reference", shell_output("#{bin}/affiles --docs")
+    system bin/"affiles", "api", "export", "--directory", testpath/"contract"
+    contract = JSON.parse((testpath/"contract/openapi.json").read)
+    assert contract.fetch("paths").fetch("/v1/directories").key?("get")
+    assert contract.fetch("paths").fetch("/v1/files/text").key?("get")
   end
 end
