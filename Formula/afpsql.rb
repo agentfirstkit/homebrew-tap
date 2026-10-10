@@ -5,23 +5,23 @@ class Afpsql < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.11.0/afpsql-v0.11.0-aarch64-apple-darwin.tar.gz"
-      sha256 "5e31bc34d5c36d39d4d74843ee423075273ef59adff22df2172019af36e89ef9"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.12.0/afpsql-v0.12.0-aarch64-apple-darwin.tar.gz"
+      sha256 "db00e18827f4f9907eaf733c97dc7acb399ee6e1f2b1871eb46db31abd4747bf"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.11.0/afpsql-v0.11.0-x86_64-apple-darwin.tar.gz"
-      sha256 "5a07fe3900c31cb0088089d52b8439120df9b1f6507607b52889d1478de1afad"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.12.0/afpsql-v0.12.0-x86_64-apple-darwin.tar.gz"
+      sha256 "d195b7bc9d87695a8746914142ceac6eb7b65738d5785fe83ff04b3bbd130b1a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.11.0/afpsql-v0.11.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "6a7d86fba498a9ebb1bea799b12256f0fb6917724f3804760d859e51177808a9"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.12.0/afpsql-v0.12.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "3513469938fbed841b08f1e3246eec60a96cd7ce7178c0afa4412d59bbf68b1a"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.11.0/afpsql-v0.11.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "8abe5a5a275de47e100457e413879dd9189e19a440573242457af5685f2a9f8e"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.12.0/afpsql-v0.12.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "de9d51049b06fe76f7c18556e263809e2975642c4b2d672b69e48bee6a7ab976"
     end
   end
 
@@ -32,7 +32,10 @@ class Afpsql < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/afpsql --version")
-    assert_match "CLI reference", shell_output("#{bin}/afpsql --docs")
+    input = %({"code":"ping"}\n{"code":"close"}\n)
+    events = pipe_output("#{bin}/afpsql --mode pipe", input, 0).lines.map { |line| JSON.parse(line) }
+    assert_equal ["result", "result"], events.map { |event| event.fetch("kind") }
+    assert_equal ["pong", "close"], events.map { |event| event.fetch("result").fetch("code") }
     assert_match version.to_s, shell_output("#{bin}/afpsql-readonly --version")
   end
 end
