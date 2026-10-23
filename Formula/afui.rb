@@ -5,23 +5,23 @@ class Afui < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.6.1/afui-v0.6.1-aarch64-apple-darwin.tar.gz"
-      sha256 "29c72c1e833b0c213f7353e5124190a2dd494f4d86baa3196daeb05a5643abde"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.7.0/afui-v0.7.0-aarch64-apple-darwin.tar.gz"
+      sha256 "e2fd2caf831d4538fe22fcf715158eb1ba076a0b909a1d21952d20e9df4281ce"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.6.1/afui-v0.6.1-x86_64-apple-darwin.tar.gz"
-      sha256 "aa2313883ffe93603e5ca45c0466a0e3da5ab3dec00744e15597c748ce5e708f"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.7.0/afui-v0.7.0-x86_64-apple-darwin.tar.gz"
+      sha256 "58e0e227de9224642b58efe5ec90b62f8c5d24f34db9eca469944e1c3e7b40d2"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.6.1/afui-v0.6.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "f620ab0437e699075ccc83c03c9084deb7166976124fe4038bedf0f513b73ba4"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.7.0/afui-v0.7.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "013ed5e0475fd3d7dd60413946c56a121607d3bbbef986e64a167856dd517650"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.6.1/afui-v0.6.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "dc6fe5e07df5d1d4db98854a78513c1b036c118314438a4e341752a76cf6a85e"
+      url "https://github.com/agentfirstkit/agent-first-ui/releases/download/v0.7.0/afui-v0.7.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "d88521be202f988a2b5efad565c394c392dc2c6e6e5874f926142c740cfcace3"
     end
   end
 
