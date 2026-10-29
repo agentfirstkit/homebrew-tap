@@ -5,23 +5,23 @@ class Afdata < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.35.0/afdata-v0.35.0-aarch64-apple-darwin.tar.gz"
-      sha256 "27ada0046fa7c0e05612c360b6e004afedee9a4706c2fe774a3578a8d8c736d6"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.35.1/afdata-v0.35.1-aarch64-apple-darwin.tar.gz"
+      sha256 "d1ebe418aeea9e2a10d53e5839da742089993cd383f250d48837316257710c09"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.35.0/afdata-v0.35.0-x86_64-apple-darwin.tar.gz"
-      sha256 "b297d3c7315864ca6faa2dbd48003687ca5002a10b08151e6362cf53cf044fce"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.35.1/afdata-v0.35.1-x86_64-apple-darwin.tar.gz"
+      sha256 "0547c5b1b6ac7a141bedfff30aa5345716c466229e696ddc9653036dbe49fe10"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.35.0/afdata-v0.35.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "a0a86174f70d5ce1b7dba5c2e9a7b7d50bde5408bb9d92410323097ae537a169"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.35.1/afdata-v0.35.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "4559b55ba2c31c8b01d2080a20056e210227d299c2909f6ed59711a4ce7f0fef"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.35.0/afdata-v0.35.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "da00fd4d46e625126f06200f2fdd0d3377f8ade823d845dff84ce62bdbb5952e"
+      url "https://github.com/agentfirstkit/agent-first-data/releases/download/v0.35.1/afdata-v0.35.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "8d063324ddd5c1541e7276f3f7d9c2bbc7b107408b0ff2acec08fa8bcfe423e9"
     end
   end
 
