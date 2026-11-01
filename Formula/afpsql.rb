@@ -5,23 +5,23 @@ class Afpsql < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.12.0/afpsql-v0.12.0-aarch64-apple-darwin.tar.gz"
-      sha256 "db00e18827f4f9907eaf733c97dc7acb399ee6e1f2b1871eb46db31abd4747bf"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.13.0/afpsql-v0.13.0-aarch64-apple-darwin.tar.gz"
+      sha256 "95405e8ff5fb553f4605dd3e1520135bb3fc0c705a2bf0cf9834eb6b38a4c2b2"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.12.0/afpsql-v0.12.0-x86_64-apple-darwin.tar.gz"
-      sha256 "d195b7bc9d87695a8746914142ceac6eb7b65738d5785fe83ff04b3bbd130b1a"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.13.0/afpsql-v0.13.0-x86_64-apple-darwin.tar.gz"
+      sha256 "6c99c2aad70f9c8aaf87be106467644c6e5b507bf5e7461298fb9febbbafed83"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.12.0/afpsql-v0.12.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "3513469938fbed841b08f1e3246eec60a96cd7ce7178c0afa4412d59bbf68b1a"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.13.0/afpsql-v0.13.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "58a1ff34229b063882246619a1e015e2191362baea420b8a35d8b32e5b369194"
     end
     on_intel do
-      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.12.0/afpsql-v0.12.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "de9d51049b06fe76f7c18556e263809e2975642c4b2d672b69e48bee6a7ab976"
+      url "https://github.com/agentfirstkit/agent-first-psql/releases/download/v0.13.0/afpsql-v0.13.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "bb8703a009b2a16609f6d06042997dd87c89743e532ca997826671da813c59a3"
     end
   end
 
