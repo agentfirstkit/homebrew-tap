@@ -33,7 +33,9 @@ class Afmail < Formula
     assert_match version.to_s, shell_output("#{bin}/afmail --version")
     testpath.cd do
       system bin/"afmail", "init", "mail"
-      system bin/"afmail", "doctor", "--workspace", "mail"
+      doctor = shell_output("#{bin}/afmail doctor --workspace mail 2>&1", 3)
+      assert_match "\"issue_count\":1", doctor
+      assert_match "no_mail_source", doctor
     end
   end
 end
