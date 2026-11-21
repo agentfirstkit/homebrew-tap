@@ -32,7 +32,7 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: |
-          all='["afdata","affiles","afhttp","afmail","afpay","afpdf","afpsql","afslug","afterminal","afui"]'
+          all='["afdata","afhttp","afmail","afpay","afpdf","afpsql","afslug","afui"]'
           if [[ "$EVENT_NAME" == "schedule" || "$EVENT_NAME" == "workflow_dispatch" || -z "$BASE_REF" || "$BASE_REF" == "0000000000000000000000000000000000000000" ]]; then
             echo "formulas=$all" >> "$GITHUB_OUTPUT"
             exit 0
